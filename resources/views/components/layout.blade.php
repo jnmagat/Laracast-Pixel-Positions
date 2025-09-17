@@ -7,11 +7,11 @@
     <title>Pixel Positions</title>
     @vite(['resources/js/app.js'])
 </head>
-<body class="bg-black text-white">
+<body class="bg-black text-white mb-20">
     <div class="px-10">
     <nav class="flex justify-between items-center py-4 border-b border-white/10">
         <div>
-            <a href="">
+            <a href="/">
                 <img src="{{ Vite::asset('resources/images/logo.svg')}}" alt=""> 
             </a></div>
         <div class="space-x-4">
@@ -20,7 +20,18 @@
             <a href="#">Salaries</a>
             <a href="#">Companies</a>
         </div>
-        <div>Post a job</div>
+
+        @auth
+            <a href="/jobs/create">Post a job</a>
+        @endauth
+
+        @guest
+            <div class="space-x-4 font-bold">
+                <a href="/register">Sign Up</a>
+                <a href="/login">Log In</a>
+            </div>
+        @endguest
+
     </nav>
 
     <main class="mt-10 max-w-[986px] mx-auto">
