@@ -7,8 +7,7 @@ use App\Models\Tag;
 
 class TagController extends Controller
 {
-    public function __invoke(Tag $tags) {
-        return view('jobs.results', ['jobs' => $tags->jobs
-        ]);
+    public function __invoke(Tag $tag) {
+        return view('jobs.results', ['jobs' => $tag->jobs]);
     }
 }
